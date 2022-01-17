@@ -22,6 +22,7 @@ Available gamepad types:
 ```
 if (myCondition) {
   var touchDiv = document.createElement('div');
+  touchDiv.setAttribute('id', 'gamepad');
   document.body.appendChild(touchDiv);
   var touchscript = document.createElement('script');
   touchscript.src = 'touchpad.js';
