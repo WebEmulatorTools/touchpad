@@ -557,6 +557,21 @@ for (let button of buttons) {
     connectGamePad();
   });
 }
+// Retroarch menu button
+if (localStorage.getItem('retroArch') == 'true') {
+  menuButton = new screenGamepad.Button();
+  menuButton.domElement.style.position = 'absolute';
+  menuButton.domElement.style.top = '10px';
+  menuButton.domElement.style.left = '10px';
+  document.getElementById("gamepad").appendChild(menuButton.domElement);
+  menuButton.addEventListener('change', function() {
+    touchController.buttons[4].pressed = menuButton.isActive;
+    touchController.buttons[5].pressed = menuButton.isActive;
+    touchController.buttons[8].pressed = menuButton.isActive;
+    touchController.buttons[9].pressed = menuButton.isActive;
+    connectGamePad();
+  });
+}
 //// Logic to convert an axes joystick to dpad
 function axesToDpad() {
   // 8 way direction with .24 deadzone
